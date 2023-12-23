@@ -1,20 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AppStack from './src/navigation/StackNavigator';
+import { useFonts } from 'expo-font';
+import { useCallback } from 'react';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    WorkSans: require("./assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf"),
+    Strac: require("./assets/fonts/strac/Straczynski.ttf"),
+    sfPro: require("./assets/fonts/sf-pro/sf-pro-text-regular.ttf"),
+    boldSfPro: require("./assets/fonts/sf-pro/sf-pro-text-bold.ttf"),
+    heavySfPro: require("./assets/fonts/sf-pro/sf-pro-text-heavy.ttf"),
+    Roboto: require("./assets/fonts/Roboto/Roboto-Regular.ttf"),
+  })
+
+  const onLayoutRootView = useCallback(async() =>{
+    
+    if(fontsLoaded){
+      await SplashScreen.hideAsync();
+    } 
+  },[fontsLoaded] );
+
+  if(!fontsLoaded){
+    return null  
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <AppStack />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

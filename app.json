@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "Giay_HypeBeast",
-    "slug": "Giay_HypeBeast",
+    "name": "HypeBeast",
+    "slug": "HypeBeast-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/app-splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chicuong.HypeBeastapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2b03fc04-5771-427e-aec8-ab9b3e7f61ea"
+      }
     }
   }
 }
